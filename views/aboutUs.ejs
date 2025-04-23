@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head') %>
+    <title>About Us - Chattrix</title>
+</head>
+<body>
+    <%- include('partials/nav') %>
+
+    <div class="container mx-auto px-4 py-12">
+        <!-- Hero Section -->
+        <div class="text-center mb-16">
+            <h1 class="text-4xl font-bold mb-4">About Chattrix</h1>
+            <p class="text-xl text-gray-600">Breaking Language Barriers in Real-time Communication</p>
+        </div>
+
+        <!-- Mission Section -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
+            <div>
+                <h2 class="text-3xl font-bold mb-6">Our Mission</h2>
+                <p class="text-gray-600 leading-relaxed">
+                    At Chattrix, we believe in making global communication seamless and accessible. 
+                    Our platform combines cutting-edge real-time translation with intuitive video 
+                    conferencing to connect people across languages and cultures.
+                </p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <img src="/partials/mission.jpeg" alt="Our Mission" class="rounded-lg">
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold mb-4">Real-time Translation</h3>
+                <p class="text-gray-600">Breaking language barriers with instant translation during video calls.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold mb-4">Global Connectivity</h3>
+                <p class="text-gray-600">Connect with anyone, anywhere, regardless of language barriers.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold mb-4">Secure Communication</h3>
+                <p class="text-gray-600">End-to-end encryption ensures your conversations remain private.</p>
+            </div>
+        </div>
+    </div>
+
+    <%- include('partials/footer') %>
+</body>
+</html>

@@ -161,6 +161,53 @@ function toggleVideo() {
   lucide.createIcons();
 }
 
+// ...existing code...
+lucide.createIcons();
+
+// Chat Functions
+function sendMessage(message) {
+    const username = document.getElementById('usernameInput').value;
+    socket.emit('chat-message', ROOM_ID, { username, message });
+    addMessageToChat(username, message, true);
+}
+
+function addMessageToChat(username, message, isOwnMessage) {
+    const chatLog = document.querySelector('.chat-log');
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('mb-2', isOwnMessage ? 'text-right' : 'text-left');
+    messageElement.innerHTML = `
+        <span class="font-bold">${username}:</span>
+        <span>${message}</span>
+    `;
+    chatLog.appendChild(messageElement);
+    chatLog.scrollTop = chatLog.scrollHeight;
+}
+
+// Chat Event Listeners
+socket.on('chat-message', (data) => {
+    addMessageToChat(data.username, data.message, false);
+});
+
+document.getElementById('send-button').addEventListener('click', () => {
+    const chatInput = document.getElementById('chat-input');
+    const message = chatInput.value.trim();
+    if (message) {
+        sendMessage(message);
+        chatInput.value = '';
+    }
+});
+
+document.getElementById('chat-input').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        const chatInput = document.getElementById('chat-input');
+        const message = chatInput.value.trim();
+        if (message) {
+            sendMessage(message);
+            chatInput.value = '';
+        }
+    }
+});
+
 function leaveRoom() {
   window.location.href = "/home";
 }
